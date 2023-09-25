@@ -61,36 +61,6 @@ static void MX_GPIO_Init(void);
   * @brief  The application entry point.
   * @retval int
   */
-void turnon(int num)
-{
-	if(num==1) HAL_GPIO_WritePin(N1_GPIO_Port , N1_Pin, GPIO_PIN_RESET);
-	if(num==2) HAL_GPIO_WritePin(N2_GPIO_Port , N2_Pin, GPIO_PIN_RESET);
-	if(num==3) HAL_GPIO_WritePin(N3_GPIO_Port , N3_Pin, GPIO_PIN_RESET);
-	if(num==4) HAL_GPIO_WritePin(N4_GPIO_Port , N4_Pin, GPIO_PIN_RESET);
-	if(num==5) HAL_GPIO_WritePin(N5_GPIO_Port , N5_Pin, GPIO_PIN_RESET);
-	if(num==6) HAL_GPIO_WritePin(N6_GPIO_Port , N6_Pin, GPIO_PIN_RESET);
-	if(num==7) HAL_GPIO_WritePin(N7_GPIO_Port , N7_Pin, GPIO_PIN_RESET);
-	if(num==8) HAL_GPIO_WritePin(N8_GPIO_Port , N8_Pin, GPIO_PIN_RESET);
-	if(num==9) HAL_GPIO_WritePin(N9_GPIO_Port , N9_Pin, GPIO_PIN_RESET);
-	if(num==10) HAL_GPIO_WritePin(N10_GPIO_Port , N10_Pin, GPIO_PIN_RESET);
-	if(num==11) HAL_GPIO_WritePin(N11_GPIO_Port , N11_Pin, GPIO_PIN_RESET);
-	if(num==12) HAL_GPIO_WritePin(N12_GPIO_Port , N12_Pin, GPIO_PIN_RESET);
-}
-void turnoff(int num)
-{
-	if(num==1) HAL_GPIO_WritePin(N1_GPIO_Port , N1_Pin, GPIO_PIN_SET);
-	if(num==2) HAL_GPIO_WritePin(N2_GPIO_Port , N2_Pin, GPIO_PIN_SET);
-	if(num==3) HAL_GPIO_WritePin(N3_GPIO_Port , N3_Pin, GPIO_PIN_SET);
-	if(num==4) HAL_GPIO_WritePin(N4_GPIO_Port , N4_Pin, GPIO_PIN_SET);
-	if(num==5) HAL_GPIO_WritePin(N5_GPIO_Port , N5_Pin, GPIO_PIN_SET);
-	if(num==6) HAL_GPIO_WritePin(N6_GPIO_Port , N6_Pin, GPIO_PIN_SET);
-	if(num==7) HAL_GPIO_WritePin(N7_GPIO_Port , N7_Pin, GPIO_PIN_SET);
-	if(num==8) HAL_GPIO_WritePin(N8_GPIO_Port , N8_Pin, GPIO_PIN_SET);
-	if(num==9) HAL_GPIO_WritePin(N9_GPIO_Port , N9_Pin, GPIO_PIN_SET);
-	if(num==10) HAL_GPIO_WritePin(N10_GPIO_Port , N10_Pin, GPIO_PIN_SET);
-	if(num==11) HAL_GPIO_WritePin(N11_GPIO_Port , N11_Pin, GPIO_PIN_SET);
-	if(num==12) HAL_GPIO_WritePin(N12_GPIO_Port , N12_Pin, GPIO_PIN_SET);
-}
 int main(void)
 {
   /* USER CODE BEGIN 1 */
@@ -121,32 +91,14 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int counter=0;
-  HAL_GPIO_WritePin(N1_GPIO_Port , N1_Pin, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(N2_GPIO_Port , N2_Pin, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(N3_GPIO_Port , N3_Pin, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(N4_GPIO_Port , N4_Pin, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(N5_GPIO_Port , N5_Pin, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(N6_GPIO_Port , N6_Pin, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(N7_GPIO_Port , N7_Pin, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(N8_GPIO_Port , N8_Pin, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(N9_GPIO_Port , N9_Pin, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(N10_GPIO_Port , N10_Pin, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(N11_GPIO_Port , N11_Pin, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(N12_GPIO_Port , N12_Pin, GPIO_PIN_SET);
+  int count=0;
+      HAL_GPIO_WritePin ( LED_RED_GPIO_Port , LED_RED_Pin ,GPIO_PIN_SET );
+      HAL_GPIO_WritePin ( LED_YELLOW_GPIO_Port , LED_YELLOW_Pin ,GPIO_PIN_SET );
   while (1)
   {
-	  // Lab1 Ex6
-	  counter++;
-	  if (counter==1)
-	  {
-		  turnoff(12);
-		  turnon(1);
-	  }
-	  turnon(counter);
-	  turnoff(counter-1);
-	  if (counter==12) counter=0;
-	  HAL_Delay(1000);
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }

@@ -136,7 +136,6 @@ int main(void)
   HAL_GPIO_WritePin(N12_GPIO_Port , N12_Pin, GPIO_PIN_SET);
   while (1)
   {
-	  // Lab1 Ex6
 	  counter++;
 	  if (counter==1)
 	  {
