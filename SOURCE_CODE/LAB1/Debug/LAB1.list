@@ -132,6 +132,7 @@ int main(void)
  800017c:	f000 fc2a 	bl	80009d4 <HAL_GPIO_WritePin>
     while (1)
     {
+    	//Lab1 Ex2
   	count++;
  8000180:	687b      	ldr	r3, [r7, #4]
  8000182:	3301      	adds	r3, #1
