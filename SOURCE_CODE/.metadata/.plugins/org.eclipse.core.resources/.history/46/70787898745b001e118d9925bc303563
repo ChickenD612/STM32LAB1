@@ -86,57 +86,17 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  /* USER CODE END 2 */
-  int count=0,count2=0;
-      HAL_GPIO_WritePin ( LED_RED1_GPIO_Port , LED_RED1_Pin ,GPIO_PIN_SET );
-      HAL_GPIO_WritePin ( LED_YELLOW1_GPIO_Port , LED_YELLOW1_Pin ,GPIO_PIN_SET );
-      HAL_GPIO_WritePin ( LED_GREEN1_GPIO_Port , LED_GREEN1_Pin ,GPIO_PIN_SET );
-      HAL_GPIO_WritePin ( LED_RED2_GPIO_Port , LED_RED2_Pin ,GPIO_PIN_SET );
-      HAL_GPIO_WritePin ( LED_YELLOW2_GPIO_Port , LED_YELLOW2_Pin ,GPIO_PIN_SET );
-      HAL_GPIO_WritePin ( LED_GREEN2_GPIO_Port , LED_GREEN2_Pin ,GPIO_PIN_SET );
-      /* Infinite loop */
-      /* USER CODE BEGIN WHILE */
 
-      while (1)
-      {
-        /* USER CODE END WHILE */
-    	  count++;
-    	    	if (count>=0 && count<6)   {
-    	    		HAL_GPIO_WritePin ( LED_RED1_GPIO_Port , LED_RED1_Pin ,GPIO_PIN_RESET );
-    	    		HAL_GPIO_WritePin ( LED_YELLOW1_GPIO_Port , LED_YELLOW1_Pin ,GPIO_PIN_SET );
-    	    		HAL_GPIO_WritePin ( LED_GREEN1_GPIO_Port , LED_GREEN1_Pin ,GPIO_PIN_SET );
-    	    	}
-    	    	if (count>=6 && count<9){
-    	    		HAL_GPIO_WritePin ( LED_RED1_GPIO_Port , LED_RED1_Pin ,GPIO_PIN_SET );
-    	    		HAL_GPIO_WritePin ( LED_YELLOW1_GPIO_Port , LED_YELLOW1_Pin ,GPIO_PIN_SET );
-    	    		HAL_GPIO_WritePin ( LED_GREEN1_GPIO_Port , LED_GREEN1_Pin ,GPIO_PIN_RESET );
-    	    	}
-    	    	if (count>=9) {
-    	    		HAL_GPIO_WritePin ( LED_RED1_GPIO_Port , LED_RED1_Pin ,GPIO_PIN_SET );
-    	    		HAL_GPIO_WritePin ( LED_YELLOW1_GPIO_Port , LED_YELLOW1_Pin ,GPIO_PIN_RESET );
-    	    		HAL_GPIO_WritePin ( LED_GREEN1_GPIO_Port , LED_GREEN1_Pin ,GPIO_PIN_SET );
-    	    	if (count >= 10) count=0;
-    	    	}
-    	    count2++;
-    	    	if (count2>=0 && count2<4)   {
-    	    	  	HAL_GPIO_WritePin ( LED_RED2_GPIO_Port , LED_RED2_Pin ,GPIO_PIN_SET );
-    	    	  	HAL_GPIO_WritePin ( LED_YELLOW2_GPIO_Port , LED_YELLOW2_Pin ,GPIO_PIN_SET );
-    	    	  	HAL_GPIO_WritePin ( LED_GREEN2_GPIO_Port , LED_GREEN2_Pin ,GPIO_PIN_RESET );
-    	    	}
-    	    	if (count2>=4 && count2<6){
-    	    	  	HAL_GPIO_WritePin ( LED_RED2_GPIO_Port , LED_RED2_Pin ,GPIO_PIN_SET );
-    	    	  	HAL_GPIO_WritePin ( LED_YELLOW2_GPIO_Port , LED_YELLOW2_Pin ,GPIO_PIN_RESET );
-    	    	  	HAL_GPIO_WritePin ( LED_GREEN2_GPIO_Port , LED_GREEN2_Pin ,GPIO_PIN_SET );
-    	      	}
-     	    	if (count2>=6) {
-      		HAL_GPIO_WritePin ( LED_RED2_GPIO_Port , LED_RED2_Pin ,GPIO_PIN_RESET );
-      		HAL_GPIO_WritePin ( LED_YELLOW2_GPIO_Port , LED_YELLOW2_Pin ,GPIO_PIN_SET );
-      		HAL_GPIO_WritePin ( LED_GREEN2_GPIO_Port , LED_GREEN2_Pin ,GPIO_PIN_SET );
-     	    	if (count2 >= 10) count2=0;
-     	    	}
-    	      	HAL_Delay(1000);
-        /* USER CODE BEGIN 3 */
-      }
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  while (1)
+  {
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
+  }
   /* USER CODE END 3 */
 }
 
