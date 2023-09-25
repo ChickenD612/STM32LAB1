@@ -157,7 +157,7 @@ int main(void)
     TimeStart(hour,minute,second);
     while (1)
       {
-    	// Lab1 Ex9
+    	// Lab1 Ex8
     	  if(hour>=12) hour=hour-12;
           if (second%5==0)
           {
