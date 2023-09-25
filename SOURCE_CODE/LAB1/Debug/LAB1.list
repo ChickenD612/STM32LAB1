@@ -1077,11 +1077,11 @@ int main(void)
  80008d8:	f44f 7100 	mov.w	r1, #512	; 0x200
  80008dc:	485c      	ldr	r0, [pc, #368]	; (8000a50 <main+0x1c8>)
  80008de:	f000 fcbb 	bl	8001258 <HAL_GPIO_WritePin>
-        /* Infinite loop */
         /* USER CODE BEGIN WHILE */
         while (1)
                 {
                   /* USER CODE END WHILE */
+        	// Lab1 Ex5
               	  count++;
  80008e2:	687b      	ldr	r3, [r7, #4]
  80008e4:	3301      	adds	r3, #1
