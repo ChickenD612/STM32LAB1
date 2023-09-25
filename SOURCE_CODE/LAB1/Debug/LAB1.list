@@ -472,6 +472,7 @@ int main(void)
  800042c:	f7ff ffbc 	bl	80003a8 <TimeStart>
     while (1)
       {
+    	// Lab1 Ex10
     	  if(hour>=12) hour=hour-12;
  8000430:	68fb      	ldr	r3, [r7, #12]
  8000432:	2b0b      	cmp	r3, #11

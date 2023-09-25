@@ -16,3 +16,17 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY org.eclipse.cdt.core 1 0 2023-09-25 13:54:53.185
 !MESSAGE Indexed 'LAB1' (19 sources, 78 headers) in 2.07 sec: 3,647 declarations; 13,140 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.012%)
+
+!ENTRY org.eclipse.core.jobs 4 2 2023-09-25 16:32:29.090
+!MESSAGE An internal error occurred during: "Periodic workspace save.".
+!STACK 0
+java.lang.NumberFormatException: null
+	at java.base/java.lang.Integer.parseInt(Integer.java:614)
+	at java.base/java.lang.Integer.parseInt(Integer.java:770)
+	at org.eclipse.core.internal.resources.SaveManager.validateMasterTableBeforeSave(SaveManager.java:1586)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1263)
+	at org.eclipse.core.internal.resources.SaveManager.saveMasterTable(SaveManager.java:1255)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1232)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1143)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
