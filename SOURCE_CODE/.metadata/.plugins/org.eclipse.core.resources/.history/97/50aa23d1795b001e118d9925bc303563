@@ -54,7 +54,14 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void setNumberOnClock(int num)
+
+/* USER CODE END 0 */
+
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
+void turnon(int num)
 {
 	if(num==1) HAL_GPIO_WritePin(N1_GPIO_Port , N1_Pin, GPIO_PIN_RESET);
 	if(num==2) HAL_GPIO_WritePin(N2_GPIO_Port , N2_Pin, GPIO_PIN_RESET);
@@ -67,9 +74,9 @@ void setNumberOnClock(int num)
 	if(num==9) HAL_GPIO_WritePin(N9_GPIO_Port , N9_Pin, GPIO_PIN_RESET);
 	if(num==10) HAL_GPIO_WritePin(N10_GPIO_Port , N10_Pin, GPIO_PIN_RESET);
 	if(num==11) HAL_GPIO_WritePin(N11_GPIO_Port , N11_Pin, GPIO_PIN_RESET);
-	if(num==0) HAL_GPIO_WritePin(N12_GPIO_Port , N12_Pin, GPIO_PIN_RESET);
+	if(num==12) HAL_GPIO_WritePin(N12_GPIO_Port , N12_Pin, GPIO_PIN_RESET);
 }
-void clearNumberOnClock(int num)
+void turnoff(int num)
 {
 	if(num==1) HAL_GPIO_WritePin(N1_GPIO_Port , N1_Pin, GPIO_PIN_SET);
 	if(num==2) HAL_GPIO_WritePin(N2_GPIO_Port , N2_Pin, GPIO_PIN_SET);
@@ -82,45 +89,8 @@ void clearNumberOnClock(int num)
 	if(num==9) HAL_GPIO_WritePin(N9_GPIO_Port , N9_Pin, GPIO_PIN_SET);
 	if(num==10) HAL_GPIO_WritePin(N10_GPIO_Port , N10_Pin, GPIO_PIN_SET);
 	if(num==11) HAL_GPIO_WritePin(N11_GPIO_Port , N11_Pin, GPIO_PIN_SET);
-	if(num==0) HAL_GPIO_WritePin(N12_GPIO_Port , N12_Pin, GPIO_PIN_SET);
+	if(num==12) HAL_GPIO_WritePin(N12_GPIO_Port , N12_Pin, GPIO_PIN_SET);
 }
-void clearAllClock()
-{
-	HAL_GPIO_WritePin(N1_GPIO_Port , N1_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(N2_GPIO_Port , N2_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(N3_GPIO_Port , N3_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(N4_GPIO_Port , N4_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(N5_GPIO_Port , N5_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(N6_GPIO_Port , N6_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(N7_GPIO_Port , N7_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(N8_GPIO_Port , N8_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(N9_GPIO_Port , N9_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(N10_GPIO_Port , N10_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(N11_GPIO_Port , N11_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(N12_GPIO_Port , N12_Pin, GPIO_PIN_SET);
-}
-void TimeStart(int hour, int minute, int second)
-{
-	if (hour>=12) hour=hour-12;
-	if (hour=12) hour=0;
-	setNumberOnClock(hour);
-	setNumberOnClock(minute/5);
-	setNumberOnClock(second/5);
-}
-/*void Counting(int h,int m,int s)
-{
-	setNumberOnClock(counter);
-	clearNumberOnClock(counter-1);
-	if (counter==12) {setNumberOnClock(0);counter=0;}
-	counter++;
-	HAL_Delay(1000);
-}*/
-/* USER CODE END 0 */
-
-/**
-  * @brief  The application entry point.
-  * @retval int
-  */
 int main(void)
 {
   /* USER CODE BEGIN 1 */
@@ -151,49 +121,33 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  	//int counter=0;
-    clearAllClock();
-    int hour=24,minute=59,second=50;
-    TimeStart(hour,minute,second);
-    while (1)
-      {
-    	// Lab1 Ex7
-    	  if(hour>=12) hour=hour-12;
-          if (second%5==0)
-          {
-        	  setNumberOnClock(second/5);
-        	  clearNumberOnClock(second/5-1);
-        	  if((second/5-1)==minute/5 || (second/5-1)==hour) setNumberOnClock(second/5-1);
-        	  if(second==60)
-        	  {
-        		  setNumberOnClock(0);
-        		  second=0;
-        		  minute++;
-        		  if (minute%5==0)
-        		  {
-        			  setNumberOnClock(minute/5);
-        		      clearNumberOnClock(minute/5-1);
-        		      if((minute/5-1)==second/5 || (minute/5-1)==hour) setNumberOnClock(minute/5-1);
-        		      if (minute==60)
-        		      {
-        		    	  setNumberOnClock(0);
-        		          minute=0;
-        		          hour++;
-        		          setNumberOnClock(hour);
-        		          clearNumberOnClock(hour-1);
-        		          if (hour-1==second/5 || hour-1==minute/5) setNumberOnClock(hour-1);
-        		          if (hour==12)
-        		          {
-        		        	  hour=0;
-        		        	  setNumberOnClock(0);
-        		          }
-        		      }
-        		   }
-        	  }
-          }
-    	  HAL_Delay(1000);
-    	  second++;
-      }
+  int counter=0;
+  HAL_GPIO_WritePin(N1_GPIO_Port , N1_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(N2_GPIO_Port , N2_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(N3_GPIO_Port , N3_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(N4_GPIO_Port , N4_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(N5_GPIO_Port , N5_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(N6_GPIO_Port , N6_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(N7_GPIO_Port , N7_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(N8_GPIO_Port , N8_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(N9_GPIO_Port , N9_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(N10_GPIO_Port , N10_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(N11_GPIO_Port , N11_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(N12_GPIO_Port , N12_Pin, GPIO_PIN_SET);
+  while (1)
+  {
+	  // Lab1 Ex6
+	  counter++;
+	  if (counter==1)
+	  {
+		  turnoff(12);
+		  turnon(1);
+	  }
+	  turnon(counter);
+	  turnoff(counter-1);
+	  if (counter==12) counter=0;
+	  HAL_Delay(1000);
+  }
   /* USER CODE END 3 */
 }
 
