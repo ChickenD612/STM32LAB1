@@ -97,7 +97,7 @@ int main(void)
     HAL_GPIO_WritePin ( LED_GREEN_GPIO_Port , LED_GREEN_Pin ,GPIO_PIN_SET );
     while (1)
     {
-    	//Lab1 Ex2 gsdf sdgdf fddfgdf gbc gdg ts rg
+    	//Lab1 Ex2
   	count++;
   	if (count>=0 && count<6)   {
   		HAL_GPIO_WritePin ( LED_RED_GPIO_Port , LED_RED_Pin ,GPIO_PIN_RESET );
