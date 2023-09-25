@@ -322,7 +322,6 @@ int main(void)
         while (1)
                 {
                   /* USER CODE END WHILE */
-        	// Lab1 Ex5
               	  count++;
               	    	if (count>=0 && count<6)   {
               	    		HAL_GPIO_WritePin ( LED_RED1_GPIO_Port , LED_RED1_Pin ,GPIO_PIN_RESET );
